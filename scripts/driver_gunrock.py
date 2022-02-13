@@ -20,7 +20,7 @@ class DriverGunrock(driver.Driver):
         # Device for evaluations
         self.device = 0
         # Type of graph
-        self.undirected = 0
+        self.undirected = 1
 
     def name(self) -> str:
         return "gunrock"

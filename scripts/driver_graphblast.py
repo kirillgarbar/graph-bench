@@ -18,7 +18,7 @@ class DriverGraphBLAST(driver.Driver):
         # 0: do not display per iteration timing, 1: display per iteration timing
         self.timing = 0
         # 0: follow mtx, 1: force undirected graph to be directed, 2: force directed graph to be undirected
-        self.directed = 0
+        self.directed = 2
         # 0: run CPU verification, 1: skip CPU algorithm verification
         self.skip_cpu_verify = 0
 

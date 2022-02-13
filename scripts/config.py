@@ -1,20 +1,6 @@
 import pathlib
 import platform
 
-__all__ = [
-    "ROOT",
-    "DATASET",
-    "DEPS",
-    "SYSTEM",
-    "EXECUTABLE_EXT",
-    "LIBRARY_EXT",
-    "DEFAULT_SOURCE_VERTEX",
-    "DEFAULT_NUM_ITERATIONS",
-    "GRAPHS_NAMES",
-    "GRAPHS_DATA",
-    "Graph"
-]
-
 from dataclasses import dataclass
 
 ROOT = pathlib.Path(__file__).parent.parent
@@ -33,7 +19,8 @@ GRAPHS_NAMES = [
     'coPapersDBLP',
     'hollywood-2009',
     'roadNet-CA',
-    'cit-Patents'
+    'com-Orkut',
+    'cit-Patents',
     'soc-LiveJournal',
     'indochina-2004'
 ]
@@ -41,10 +28,40 @@ GRAPHS_NAMES = [
 
 @dataclass
 class Graph:
-    file: str
+    id: str
 
     def path(self):
-        return DATASET / self.file
+        return DATASET / f"{self.id}.mtx"
+
+    def about(self):
+        return self.id
+
+    def __str__(self):
+        return self.about()
+
+    def __repr__(self):
+        return self.about()
 
 
-GRAPHS_DATA = {name: Graph(f"{name}.mtx") for name in GRAPHS_NAMES}
+GRAPHS_DATA = {name: Graph(name) for name in GRAPHS_NAMES}
+
+GRAPHS_BFS = [
+    GRAPHS_DATA['hollywood-2009'],
+    GRAPHS_DATA['roadNet-CA'],
+    GRAPHS_DATA['com-Orkut'],
+    GRAPHS_DATA['soc-LiveJournal'],
+    GRAPHS_DATA['indochina-2004']
+]
+
+GRAPHS_SSSP = []
+
+GRAPHS_TC = [
+    GRAPHS_DATA['coAuthorsCiteseer'],
+    GRAPHS_DATA['coPapersDBLP'],
+    GRAPHS_DATA['roadNet-CA'],
+    GRAPHS_DATA['com-Orkut'],
+    GRAPHS_DATA['soc-LiveJournal']
+]
+
+ALGORITHMS = ["bfs", "sssp", "tc"]
+GRAPHS = {"bfs": GRAPHS_BFS, "sssp": GRAPHS_SSSP, "tc": GRAPHS_TC}

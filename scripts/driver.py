@@ -22,9 +22,16 @@ class ExecutionResult:
     def sd(self):
         return statistics.stdev(self.times)
 
+    def maximum(self):
+        return max(self.times)
+
+    def minimum(self):
+        return min(self.times)
+
     def brief_str(self) -> str:
         return f'warm_up={self.warm_up:.2f}ms, avg={self.avg():.2f}ms, ' \
-               f'median={self.median():.2f}ms, sd={self.sd():.2f}'
+               f'sd={self.sd():.2f}, median={self.median():.2f}ms, ' \
+               f'min={self.minimum()}ms, max={self.maximum()}ms'
 
     def __str__(self) -> str:
         return self.brief_str()
@@ -104,5 +111,10 @@ class Driver:
         else:
             raise Exception(f"Unknown algorithm {algo}")
 
-        print(f"Run {self.name()} result: {result}")
         return result
+
+    def __str__(self):
+        return self.name()
+
+    def __repr__(self):
+        return self.name()

@@ -20,8 +20,8 @@ class DriverLaGraph(driver.Driver):
     def __init__(self, lagraph_build_root: pathlib.Path):
         self.exec_dir = lagraph_build_root / "src" / "benchmark"
         if not os.path.exists(self.exec_dir):
-            raise Exception(
-                f'LaGraph exec dir does not exist, where it should be: {self.exec_dir}')
+            raise Exception(f'LaGraph exec dir does not exist, where it should be: {self.exec_dir}')
+
         self.lagraph_bfs = "bfs_demo" + config.EXECUTABLE_EXT
         self.lagraph_sssp = "sssp_demo" + config.EXECUTABLE_EXT
         self.lagraph_tc = "tc_demo" + config.EXECUTABLE_EXT
