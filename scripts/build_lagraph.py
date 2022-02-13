@@ -1,6 +1,3 @@
-from distutils.command import check
-from gettext import install
-import sys
 import os
 import argparse
 import urllib.request
