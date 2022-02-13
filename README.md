@@ -2,6 +2,15 @@
 
 Benchmarks suite for performance study of various graph analysis frameworks for CPU/GPU computations.
 
+## Tools description
+
+| Name       | Brief                                                              | Platform | Technology |                                        Source Page |
+|:-----------|:-------------------------------------------------------------------|---------:|-----------:|---------------------------------------------------:|
+| Spla       | Generalized linear sparse linear algebra for multi-GPU computation |      GPU |     OpenCL | [link](https://github.com/JetBrains-Research/spla) |
+| GraphBLAST | High-performance linear algebra-based graph primitives on GPUs     |      GPU |       CUDA |      [link](https://github.com/gunrock/graphblast) |
+| Gunrock    | High-performance graph primitives on GPUs                          |      GPU |       CUDA |         [link](https://github.com/gunrock/gunrock) |
+| LaGraph    | Collection of graph algorithms for SuiteSparse:GraphBLAS libray    |      CPU |     OpenMP |       [link](https://github.com/GraphBLAS/LAGraph) |
+
 ## Dataset description
 
 | Name              | Vertices |  Edges | Max Degree |                                                                                          Download |
@@ -31,7 +40,7 @@ python3 scripts/config.py
 
 ### 3. How to build tools
 
-#### Spla
+#### 3.1 Spla
 
 Build bundled Spla library.
 
@@ -39,7 +48,7 @@ Build bundled Spla library.
 python3 scripts/build_spla.py
 ```
 
-#### Gunrock
+#### 3.2 Gunrock
 
 Build bundled Gunrock library.
 
@@ -47,7 +56,7 @@ Build bundled Gunrock library.
 python3 scripts/build_gunrock.py
 ```
 
-#### GraphBLAST
+#### 3.3 GraphBLAST
 
 Build bundled GraphBLAST library.
 
@@ -55,7 +64,7 @@ Build bundled GraphBLAST library.
 python3 scripts/build_graphblast.py
 ```
 
-#### LaGraph
+#### 3.4 LaGraph
 
 Build bundled SuiteSparse and LaGraph libraries.
 
