@@ -15,32 +15,70 @@ Benchmarks suite for performance study of various graph analysis frameworks for 
 | soc-LiveJournal   |     4.8M |  68.9M |      20333 |      [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/soc-LiveJournal1.tar.gz) |
 | indochina-2004    |     7.5M | 194.1M |     256425 |         [link](https://suitesparse-collection-website.herokuapp.com/MM/LAW/indochina-2004.tar.gz) |
 
+## Instructions
 
-## How to build tools
+### 1. How to download data
 
-### Spla
+Download archive with graphs data. Extract archive and place data into [dataset](./dataset) folder.
+
+### 2. How to prepare data
+
+Convert graphs into undirected graphs
+
+```shell
+python3 scripts/config.py
+```
+
+### 3. How to build tools
+
+#### Spla
+
+Build bundled Spla library.
 
 ```shell
 python3 scripts/build_spla.py
 ```
 
-### Gunrock
+#### Gunrock
+
+Build bundled Gunrock library.
 
 ```shell
 python3 scripts/build_gunrock.py
 ```
 
-### GraphBLAST
+#### GraphBLAST
+
+Build bundled GraphBLAST library.
 
 ```shell
 python3 scripts/build_graphblast.py
 ```
 
-### LaGraph
+#### LaGraph
+
+Build bundled SuiteSparse and LaGraph libraries.
 
 ```shell
 python3 scripts/build_lagraph.py
 ```
 
-## How to run benchmarks
+### 4. How to run benchmarks
 
+Run all algorithms & graphs & tools performance measurements.
+
+```shell
+python3 scripts/benchmark.py
+```
+
+Run particular tool for performance measurements.
+
+```shell
+python3 scripts/benchmark.py --tool=[all, spla, lagraph, gunrock, graphblast]
+```
+
+Run particular algorithm for performance measurements.
+
+```shell
+python3 scripts/benchmark.py --algo=[all, bfs, sssp, tc]
+```

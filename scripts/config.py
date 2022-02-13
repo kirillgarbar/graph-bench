@@ -10,6 +10,7 @@ DEPS = ROOT / "deps"
 SYSTEM = {'Darwin': 'macos', 'Linux': 'linux', 'Windows': 'windows'}[platform.system()]
 EXECUTABLE_EXT = {'macos': '', 'windows': '.exe', 'linux': ''}[SYSTEM]
 LIBRARY_EXT = {'macos': '.dylib', 'linux': '.so', 'windows': '.dll'}[SYSTEM]
+DATASET_SUFFIX = ".dt.un.rl"
 
 DEFAULT_NUM_ITERATIONS = 10
 DEFAULT_SOURCE_VERTEX = 0
@@ -30,8 +31,11 @@ GRAPHS_NAMES = [
 class Graph:
     id: str
 
-    def path(self):
+    def path_original(self):
         return DATASET / f"{self.id}.mtx"
+
+    def path(self):
+        return DATASET / f"{self.id}.mtx{DATASET_SUFFIX}"
 
     def about(self):
         return self.id
