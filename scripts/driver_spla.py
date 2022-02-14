@@ -16,6 +16,7 @@ class DriverSpla(driver.Driver):
     """
 
     def __init__(self):
+        super().__init__()
         self.exec_dir = config.DEPS / "spla" / "build"
         self.spla_bfs = "spla_bfs" + config.EXECUTABLE_EXT
         self.spla_sssp = "spla_sssp" + config.EXECUTABLE_EXT
@@ -32,12 +33,13 @@ class DriverSpla(driver.Driver):
         return "spla"
 
     def run_bfs(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
+
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_bfs),
              f"--mtxpath={graph.path()}",
              f"--niters={num_iterations}",
              f"--source={source_vertex}",
-             f"--undirected={self.undirected}"])
+             f"--undirected={self.undirected}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
     def run_sssp(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
@@ -46,14 +48,14 @@ class DriverSpla(driver.Driver):
              f"--mtxpath={graph.path()}",
              f"--niters={num_iterations}",
              f"--source={source_vertex}",
-             f"--undirected={self.undirected}"])
+             f"--undirected={self.undirected}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
     def run_tc(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_tc),
              f"--mtxpath={graph.path()}",
-             f"--niters={num_iterations}"])
+             f"--niters={num_iterations}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
     @staticmethod
@@ -67,3 +69,6 @@ class DriverSpla(driver.Driver):
             if line.startswith("iters(ms):"):
                 runs = [float(v) for v in line.split(" ")[1:-1]]
         return driver.ExecutionResult(warmup, runs)
+
+    def _get_platform(self):
+        return [f"--platform={self.params['platform']}"] if "platform" in self.params else []

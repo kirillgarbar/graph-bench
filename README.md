@@ -21,27 +21,30 @@ Benchmarks suite for performance study of various graph analysis frameworks for 
 | roadNet-CA        |     1.9M |   5.5M |         12 |            [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/roadNet-CA.tar.gz) |
 | com-Orcut         |       3M |   234M |      33313 |             [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/com-Orkut.tar.gz) |
 | cit-Patents       |     3.7M |  16.5M |        793 |           [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/cit-Patents.tar.gz) |
+| rgg_n_2_22_s0     |     4.1M |  60.7M |         36 |     [link](https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/rgg_n_2_22_s0.tar.gz) |
 | soc-LiveJournal   |     4.8M |  68.9M |      20333 |      [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/soc-LiveJournal1.tar.gz) |
 | indochina-2004    |     7.5M | 194.1M |     256425 |         [link](https://suitesparse-collection-website.herokuapp.com/MM/LAW/indochina-2004.tar.gz) |
+| rgg_n_2_23_s0     |     8.3M |   127M |         40 |     [link](https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/rgg_n_2_23_s0.tar.gz) |
 
 ## Instructions
 
-### 1. How to download data
+### 1. How to get source code
 
-Download all graphs one by one archives and extract into [dataset](./dataset) folder.
-Alternatively, download all graphs within single archive from [google drive](https://drive.google.com/file/d/1xBmQmmKZAn_PK6aRnHfx7NjHtaCkGbeS/view?usp=sharing).
-
-### 2. How to prepare data
-
-Convert graphs into undirected graphs
+Download benchmark repository source code.
 
 ```shell
-python3 scripts/config.py
+git clone https://github.com/EgorOrachyov/graph-bench.git
 ```
 
-### 3. How to build tools
+Within repo folder init git submodule to get all source code of tools.
 
-#### 3.1 Spla
+```shell
+git submodule update --init --recursive
+```
+
+### 2. How to build tools
+
+#### 2.1 Spla
 
 Build bundled Spla library.
 
@@ -49,7 +52,7 @@ Build bundled Spla library.
 python3 scripts/build_spla.py
 ```
 
-#### 3.2 Gunrock
+#### 2.2 Gunrock
 
 Build bundled Gunrock library.
 
@@ -57,7 +60,7 @@ Build bundled Gunrock library.
 python3 scripts/build_gunrock.py
 ```
 
-#### 3.3 GraphBLAST
+#### 2.3 GraphBLAST
 
 Build bundled GraphBLAST library.
 
@@ -65,7 +68,7 @@ Build bundled GraphBLAST library.
 python3 scripts/build_graphblast.py
 ```
 
-#### 3.4 LaGraph
+#### 2.4 LaGraph
 
 Build bundled SuiteSparse and LaGraph libraries.
 
@@ -73,7 +76,20 @@ Build bundled SuiteSparse and LaGraph libraries.
 python3 scripts/build_lagraph.py
 ```
 
-### 4. How to run benchmarks
+### 3. How to download data
+
+Download all graphs one by one archives and extract into [dataset](./dataset) folder.
+Alternatively, download all graphs within single archive from [google drive](https://drive.google.com/file/d/1bgovKsmjexYyXfEZLxNi-0uoxmDalIGn/view?usp=sharing).
+
+### 4. How to prepare data
+
+Convert graphs into undirected graphs
+
+```shell
+python3 scripts/config.py
+```
+
+### 5. How to run benchmarks
 
 Run all algorithms & graphs & tools performance measurements.
 
@@ -91,4 +107,10 @@ Run particular algorithm for performance measurements.
 
 ```shell
 python3 scripts/benchmark.py --algo=[all, bfs, sssp, tc]
+```
+
+See help for more options.
+
+```shell
+python3 scripts/benchmark.py -h
 ```

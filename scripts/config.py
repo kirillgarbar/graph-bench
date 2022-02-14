@@ -22,8 +22,10 @@ GRAPHS_NAMES = [
     'roadNet-CA',
     'com-Orkut',
     'cit-Patents',
+    'rgg_n_2_22_s0',
     'soc-LiveJournal',
-    'indochina-2004'
+    'indochina-2004',
+    'rgg_n_2_23_s0'
 ]
 
 
@@ -54,7 +56,9 @@ GRAPHS_BFS = [
     GRAPHS_DATA['roadNet-CA'],
     GRAPHS_DATA['com-Orkut'],
     GRAPHS_DATA['soc-LiveJournal'],
-    GRAPHS_DATA['indochina-2004']
+    GRAPHS_DATA['indochina-2004'],
+    GRAPHS_DATA['rgg_n_2_22_s0'],
+    GRAPHS_DATA['rgg_n_2_23_s0']
 ]
 
 GRAPHS_SSSP = []
@@ -64,7 +68,9 @@ GRAPHS_TC = [
     GRAPHS_DATA['coPapersDBLP'],
     GRAPHS_DATA['roadNet-CA'],
     GRAPHS_DATA['com-Orkut'],
-    GRAPHS_DATA['soc-LiveJournal']
+    GRAPHS_DATA['cit-Patents'],
+    GRAPHS_DATA['soc-LiveJournal'],
+    GRAPHS_DATA['rgg_n_2_22_s0']
 ]
 
 ALGORITHMS = ["bfs", "sssp", "tc"]

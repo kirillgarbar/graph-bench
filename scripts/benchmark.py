@@ -53,6 +53,7 @@ def main():
     parser.add_argument("--num-iterations", default=10, help="Number of iteration to run each test")
     parser.add_argument("--source", default=config.DEFAULT_SOURCE_VERTEX, help="Source vertex for bfs, sssp, etc.")
     parser.add_argument("--graph", help="Graph to run algorithms")
+    parser.add_argument("--platform", default="", help="OpenCL platform to run (for OpenCL-based tools)")
     args = parser.parse_args()
 
     if args.algo == 'all':
@@ -72,7 +73,8 @@ def main():
 
     params = {
         "num_iterations": int(args.num_iterations),
-        "source": int(args.source)
+        "source": int(args.source),
+        "platform": str(args.platform)
     }
 
     print("Run benchmarks:")

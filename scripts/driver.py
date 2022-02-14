@@ -54,6 +54,9 @@ class Driver:
         * [future] page rank
     """
 
+    def __init__(self):
+        self.params = dict()
+
     @abc.abstractmethod
     def name(self) -> str:
         """
@@ -102,6 +105,8 @@ class Driver:
         :param params: Additional params
         :return: execution result
         """
+        self.params = params
+
         if algo == 'bfs':
             result = self.run_bfs(graph, int(params['source']), int(params['num_iterations']))
         elif algo == 'sssp':
