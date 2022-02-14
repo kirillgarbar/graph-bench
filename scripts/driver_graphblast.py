@@ -18,7 +18,7 @@ class DriverGraphBLAST(driver.Driver):
         # 0: do not display per iteration timing, 1: display per iteration timing
         self.timing = 0
         # 0: follow mtx, 1: force undirected graph to be directed, 2: force directed graph to be undirected
-        self.directed = 2
+        self.directed = 0
         # 0: run CPU verification, 1: skip CPU algorithm verification
         self.skip_cpu_verify = 0
 
@@ -46,7 +46,7 @@ class DriverGraphBLAST(driver.Driver):
         return DriverGraphBLAST._parse_output(output, num_iterations)
 
     def run_tc(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
-        output = subprocess.check_output([str(self.exec_dir / self.gsssp),
+        output = subprocess.check_output([str(self.exec_dir / self.gtc),
                                           f"--niter={num_iterations}",
                                           f"--timing={self.timing}",
                                           f"--directed=2",

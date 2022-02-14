@@ -20,7 +20,7 @@ class DriverSpla(driver.Driver):
         self.spla_bfs = "spla_bfs" + config.EXECUTABLE_EXT
         self.spla_sssp = "spla_sssp" + config.EXECUTABLE_EXT
         self.spla_tc = "spla_tc" + config.EXECUTABLE_EXT
-        self.undirected = 1
+        self.undirected = 0
 
         try:
             self.exec_dir = pathlib.Path(os.environ["BENCH_DRIVER_SPLA"])

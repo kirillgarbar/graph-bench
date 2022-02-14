@@ -28,7 +28,8 @@ Benchmarks suite for performance study of various graph analysis frameworks for 
 
 ### 1. How to download data
 
-Download archive with graphs data. Extract archive and place data into [dataset](./dataset) folder.
+Download all graphs one by one archives and extract into [dataset](./dataset) folder.
+Alternatively, download all graphs within single archive from [google drive](https://drive.google.com/file/d/1xBmQmmKZAn_PK6aRnHfx7NjHtaCkGbeS/view?usp=sharing).
 
 ### 2. How to prepare data
 
