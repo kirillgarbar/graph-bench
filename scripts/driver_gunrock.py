@@ -10,6 +10,7 @@ __all__ = [
 class DriverGunrock(driver.Driver):
 
     def __init__(self):
+        super().__init__()
         self.exec_dir = config.DEPS / "gunrock" / "build" / "bin"
         self.bfs = "bfs"
         self.sssp = "sssp"

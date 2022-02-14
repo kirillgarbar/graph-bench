@@ -10,6 +10,7 @@ __all__ = [
 class DriverGraphBLAST(driver.Driver):
 
     def __init__(self):
+        super().__init__()
         self.exec_dir = config.DEPS / "graphblast" / "bin"
         self.gbfs = "gbfs"
         self.gsssp = "gsssp"
