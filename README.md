@@ -86,7 +86,7 @@ Alternatively, download all graphs within single archive from [google drive](htt
 Convert graphs into undirected graphs
 
 ```shell
-python3 scripts/config.py
+python3 scripts/convert.py
 ```
 
 ### 5. How to run benchmarks
