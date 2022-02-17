@@ -1,5 +1,8 @@
 # graph-bench
 
+[![JB Research](https://jb.gg/badges/research-flat-square.svg)](https://research.jetbrains.org/)
+[![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/JetBrains-Research/spla-bench/blob/master/LICENSE.md)
+
 Benchmarks suite for performance study of various graph analysis frameworks for CPU/GPU computations.
 
 ## Tools description
@@ -79,7 +82,7 @@ python3 scripts/build_lagraph.py
 ### 3. How to download data
 
 Download all graphs one by one archives and extract into [dataset](./dataset) folder.
-Alternatively, download all graphs within single archive from [google drive](https://drive.google.com/file/d/1bgovKsmjexYyXfEZLxNi-0uoxmDalIGn/view?usp=sharing).
+Alternatively, download all graphs within single archive from [Google Drive](https://drive.google.com/file/d/1bgovKsmjexYyXfEZLxNi-0uoxmDalIGn/view?usp=sharing).
 
 ### 4. How to prepare data
 
@@ -114,3 +117,13 @@ See help for more options.
 ```shell
 python3 scripts/benchmark.py -h
 ```
+
+## License
+
+This project licensed under MIT License. License text can be found in the
+[license file](./LICENSE.md).
+
+## Acknowledgments <img align="right" width="15%" src="https://github.com/EgorOrachyov/graph-bench/raw/main/docs/jetbrains-logo.png?raw=true&sanitize=true">
+
+This is a research project of the Programming Languages and Tools Laboratory
+at JetBrains-Research. Laboratory website [link](https://research.jetbrains.org/groups/plt_lab/).

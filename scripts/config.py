@@ -66,7 +66,7 @@ GRAPHS_SSSP = []
 GRAPHS_TC = [
     GRAPHS_DATA['coAuthorsCiteseer'],
     GRAPHS_DATA['coPapersDBLP'],
-    GRAPHS_DATA['roadNet-CA'],git
+    GRAPHS_DATA['roadNet-CA'],
     GRAPHS_DATA['com-Orkut'],
     GRAPHS_DATA['cit-Patents'],
     GRAPHS_DATA['soc-LiveJournal'],
