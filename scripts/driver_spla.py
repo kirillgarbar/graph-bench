@@ -33,7 +33,6 @@ class DriverSpla(driver.Driver):
         return "spla"
 
     def run_bfs(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
-
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_bfs),
              f"--mtxpath={graph.path()}",
@@ -61,14 +60,11 @@ class DriverSpla(driver.Driver):
     @staticmethod
     def _parse_output(output):
         lines = output.decode("ASCII").replace("\r", "").split("\n")
-        warmup = 0.0
         runs = []
         for line in lines:
-            if line.startswith("warm-up(ms):"):
-                warmup = float(line.split(" ")[1])
-            if line.startswith("iters(ms):"):
+            if line.startswith("gpu(ms):"):
                 runs = [float(v) for v in line.split(" ")[1:-1]]
-        return driver.ExecutionResult(warmup, runs)
+        return driver.ExecutionResult(runs[0], runs[1:])
 
     def _get_platform(self):
         return [f"--platform={self.params['platform']}"] if "platform" in self.params else []

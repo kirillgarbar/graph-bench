@@ -5,7 +5,7 @@ import itertools
 
 SPLA_PATH = config.DEPS / "spla"
 SPLA_BUILD = SPLA_PATH / "build"
-SPLA_TARGETS = ["spla_bfs", "spla_sssp", "spla_tc", "spla_data"]
+SPLA_TARGETS = ["bfs"]
 
 
 def build(args):

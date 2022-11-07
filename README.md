@@ -84,15 +84,7 @@ python3 scripts/build_lagraph.py
 Download all graphs one by one archives and extract into [dataset](./dataset) folder.
 Alternatively, download all graphs within single archive from [Google Drive](https://drive.google.com/file/d/1bgovKsmjexYyXfEZLxNi-0uoxmDalIGn/view?usp=sharing).
 
-### 4. How to prepare data
-
-Convert graphs into undirected graphs
-
-```shell
-python3 scripts/convert.py
-```
-
-### 5. How to run benchmarks
+### 4. How to run benchmarks
 
 Run all algorithms & graphs & tools performance measurements.
 
