@@ -10,3 +10,6 @@
 [submodule "deps/graphblas"]
 	path = deps/graphblas
 	url = https://github.com/DrTimothyAldenDavis/GraphBLAS.git
+[submodule "deps/spla"]
+	path = deps/spla
+	url = https://github.com/JetBrains-Research/spla.git
