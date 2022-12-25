@@ -68,6 +68,7 @@ def store_stats(run_stats: dict):
             writer.writerow(header)
 
             for stats in run_stats[algo][tool]:
+                print(stats.split(','))
                 stat_list = [stat.strip().strip("ms") for stat in stats.split(',')[1:]]
                 del stat_list[2]
                 writer.writerow(stat_list)
