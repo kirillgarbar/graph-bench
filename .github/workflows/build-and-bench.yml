@@ -26,6 +26,9 @@ jobs:
           ./build.sh DotnetBuild
           cd ../../
 
+      - name: Benchmark LAGraph BFS
+        run: python3 scripts/benchmark.py --tool=lagraph --algo=bfs
+
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}

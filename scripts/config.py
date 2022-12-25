@@ -10,12 +10,13 @@ DEPS = ROOT / "deps"
 SYSTEM = {'Darwin': 'macos', 'Linux': 'linux', 'Windows': 'windows'}[platform.system()]
 EXECUTABLE_EXT = {'macos': '', 'windows': '.exe', 'linux': ''}[SYSTEM]
 LIBRARY_EXT = {'macos': '.dylib', 'linux': '.so', 'windows': '.dll'}[SYSTEM]
-DATASET_SUFFIX = ".dt.un.rl"
+DATASET_SUFFIX = ""
 
 DEFAULT_NUM_ITERATIONS = 10
 DEFAULT_SOURCE_VERTEX = 0
 
 GRAPHS_NAMES = [
+    'wing'
     'coAuthorsCiteseer',
     'coPapersDBLP',
     'hollywood-2009',
@@ -52,13 +53,7 @@ class Graph:
 GRAPHS_DATA = {name: Graph(name) for name in GRAPHS_NAMES}
 
 GRAPHS_BFS = [
-    GRAPHS_DATA['hollywood-2009'],
-    GRAPHS_DATA['roadNet-CA'],
-    GRAPHS_DATA['com-Orkut'],
-    GRAPHS_DATA['soc-LiveJournal'],
-    GRAPHS_DATA['indochina-2004'],
-    GRAPHS_DATA['rgg_n_2_22_s0'],
-    GRAPHS_DATA['rgg_n_2_23_s0']
+    GRAPHS_DATA['wing'],
 ]
 
 GRAPHS_SSSP = []
