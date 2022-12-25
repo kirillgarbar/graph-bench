@@ -70,7 +70,8 @@ def store_stats(run_stats: dict):
             writer.writerow(f"{tool}")
             writer.writerow(header)
 
-            for stats in run_stats[algo][tool]:
+            for graph in run_stats[algo][tool]:
+                stats = run_stats[algo][tool][graph]
                 print(stats)
                 print(stats.split(','))
                 stat_list = [stat.strip().strip("ms") for stat in stats.split(',')[1:]]
