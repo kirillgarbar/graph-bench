@@ -16,3 +16,4 @@
 [submodule "deps/graphblas-sharp"]
 	path = deps/graphblas-sharp
 	url = https://github.com/YaccConstructor/GraphBLAS-sharp.git
+	branch = net5
