@@ -57,7 +57,7 @@ def get_time_stamp():
 
 def store_stats(run_stats: dict):
     header = ["Matrix", "MEAN", "SD", "MIN", "MAX"]
-    output_file = open(OUTPUT_PATH / (get_time_stamp() + ".csv"), w)
+    output_file = open(OUTPUT_PATH / (get_time_stamp() + ".csv"), "w")
     writer = csv.writer(output_file)
 
     for algo in run_stats:
