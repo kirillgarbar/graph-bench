@@ -13,3 +13,6 @@
 [submodule "deps/spla"]
 	path = deps/spla
 	url = https://github.com/JetBrains-Research/spla.git
+[submodule "deps/graphblas-sharp"]
+	path = deps/graphblas-sharp
+	url = https://github.com/YaccConstructor/GraphBLAS-sharp.git
