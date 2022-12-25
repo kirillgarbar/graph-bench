@@ -94,7 +94,7 @@ def main():
     if args.tool == 'all':
         tools = list(DRIVERS.values())
     else:
-        tools = [DRIVERS[args.tool]]
+        tools = [DRIVERS[tool.strip()] for tool in args.tool.strip("[]").split(,)]
 
     if args.graph is None:
         graphs = config.GRAPHS
