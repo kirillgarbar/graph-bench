@@ -25,8 +25,11 @@ jobs:
       - name: Build GraphBLAS-sharp
         run: |
           cd deps/graphblas-sharp
+          echo "1"
           chmod +x build.sh
-          build.sh DotnetBuild
+          echo "2"
+          ./build.sh DotnetBuild
+          echo "3"
           cd ../../
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
