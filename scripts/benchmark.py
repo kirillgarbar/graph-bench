@@ -4,8 +4,11 @@ import driver_gunrock
 import driver_lagraph
 import driver_spla
 import argparse
+import csv
+from datetime import datetime
 
 LaGRAPH_PATH = config.DEPS / "lagraph" / "build_git"
+OUTPUT_PATH = config.ROOT / "docs"
 
 DRIVERS = {
     "graphblast": driver_graphblast.DriverGraphBLAST(),
@@ -44,6 +47,22 @@ def output_stats(run_stats: dict):
     for algo, stats in run_stats.items():
         print("-" * 40 + f" {algo} " + "-" * 40)
         print_table(build_table(stats, lambda x: x.avg()))
+
+
+def get_time_stamp():
+    current_time = datetime.datetime.now()
+    time_stamp = current_time.timestamp()
+    date_time = datetime.fromtimestamp(time_stamp)
+    return date_time.strftime("%d-%m-%Y-%H:%M:%S")
+
+def store_stats(run_stats: dict):
+    header = ["Matrix", "MEAN", "SD", "MAX", "MIN"]
+    output_file = open(OUTPUT_PATH / get_time_stamp() + ".csv", w)
+    writer = csv.writer(output_file)
+
+    for algo, stats in run_stats.items():
+        writer.writerow(f{algo})
+        writer.writerow(header)
 
 
 def main():
@@ -99,6 +118,7 @@ def main():
                 except Exception as e:
                     print(f"  Failed due {e}")
 
+    print(run_stats)
     output_stats(run_stats)
 
 
