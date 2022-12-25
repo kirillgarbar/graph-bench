@@ -71,7 +71,7 @@ def store_stats(run_stats: dict):
             writer.writerow(header)
 
             for graph in run_stats[algo][tool]:
-                stats = run_stats[algo][tool][graph]
+                stats = f"{run_stats[algo][tool][graph]}"
                 print(stats)
                 print(stats.split(','))
                 stat_list = [stat.strip().strip("ms") for stat in stats.split(',')[1:]]
