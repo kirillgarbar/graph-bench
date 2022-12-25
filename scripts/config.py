@@ -16,7 +16,7 @@ DEFAULT_NUM_ITERATIONS = 10
 DEFAULT_SOURCE_VERTEX = 0
 
 GRAPHS_NAMES = [
-    'wing'
+    'wing',
     'coAuthorsCiteseer',
     'coPapersDBLP',
     'hollywood-2009',
