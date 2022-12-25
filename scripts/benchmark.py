@@ -56,13 +56,21 @@ def get_time_stamp():
     return date_time.strftime("%d-%m-%Y-%H:%M:%S")
 
 def store_stats(run_stats: dict):
-    header = ["Matrix", "MEAN", "SD", "MAX", "MIN"]
+    header = ["Matrix", "MEAN", "SD", "MIN", "MAX"]
     output_file = open(OUTPUT_PATH / get_time_stamp() + ".csv", w)
     writer = csv.writer(output_file)
 
-    for algo, stats in run_stats.items():
+    for algo in run_stats:
         writer.writerow(f"{algo}")
+
+        for tool in run_stats[algo]:
+        writer.writerow(f"{tool}")
         writer.writerow(header)
+
+            for stats in run_stats[algo][tool]:
+                stat_list = [stat.strip().strip("ms") for stat in stats.split(',')[1:]]
+                del stat_list[2]
+                writer.writerow(stat_list)
 
 
 def main():
@@ -118,8 +126,8 @@ def main():
                 except Exception as e:
                     print(f"  Failed due {e}")
 
-    print(run_stats)
     output_stats(run_stats)
+    store_stats(run_stats)
 
 
 if __name__ == '__main__':
