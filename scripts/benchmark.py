@@ -6,6 +6,7 @@ import driver_spla
 import argparse
 import csv
 from datetime import datetime
+import re
 
 LaGRAPH_PATH = config.DEPS / "lagraph" / "build_git"
 OUTPUT_PATH = config.ROOT / "docs"
@@ -74,8 +75,8 @@ def store_stats(run_stats: dict):
                 stats = f"{run_stats[algo][tool][graph]}"
                 print(stats)
                 print(stats.split(','))
-                stat_list = [stat.strip().strip("ms") for stat in stats.split(',')[1:]]
-                del stat_list[2]
+                stat_list = [graph] + [re.sub("[^\d\.]", "", stat) for stat in stats.split(',')[1:]]
+                del stat_list[3]
                 writer.writerow(stat_list)
 
 
