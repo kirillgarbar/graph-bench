@@ -34,7 +34,7 @@ jobs:
           cd ../../
 
       - name: Benchmark LAGraph and GraphBLAST BFS
-        run: python3 scripts/benchmark.py --tool=[lagraph, graphblast] --algo=bfs
+        run: python3 scripts/benchmark.py --tool lagraph graphblast --algo bfs
 
       - name: List files in the repository
         run: |

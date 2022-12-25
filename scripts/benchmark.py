@@ -79,7 +79,7 @@ def store_stats(run_stats: dict):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--algo", default="all", help="Algorithm to test [all, bfs, sssp, tc]")
-    parser.add_argument("--tool", default="all", help="Tool to test [all, graphblast, gunrock, lagraph, spla]")
+    parser.add_argument("--tool", default=[], nargs="+", help="Tool to test [all, graphblast, gunrock, lagraph, spla]")
     parser.add_argument("--num-iterations", default=10, help="Number of iteration to run each test")
     parser.add_argument("--source", default=config.DEFAULT_SOURCE_VERTEX, help="Source vertex for bfs, sssp, etc.")
     parser.add_argument("--graph", help="Graph to run algorithms")
@@ -91,10 +91,10 @@ def main():
     else:
         algos = [args.algo]
 
-    if args.tool == 'all':
+    if args.tool[0] == 'all':
         tools = list(DRIVERS.values())
     else:
-        tools = [DRIVERS[tool.strip()] for tool in args.tool.strip("[]").split(",")]
+        tools = [DRIVERS[tool] for tool in args.tool]
 
     if args.graph is None:
         graphs = config.GRAPHS
