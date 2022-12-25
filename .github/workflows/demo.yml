@@ -24,8 +24,8 @@ jobs:
       #  run: python3 scripts/build_lagraph.py
       - name: Build GraphBLAS-sharp
         run: |
-          chmod +x ./build.sh
-          ./build.sh DotnetBuild
+          chmod +x deps/graphblas-sharp/build.sh
+          deps/graphblas-sharp/build.sh DotnetBuild
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
