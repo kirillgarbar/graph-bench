@@ -60,14 +60,18 @@ def store_stats(run_stats: dict):
     output_file = open(OUTPUT_PATH / (get_time_stamp() + ".csv"), "w")
     writer = csv.writer(output_file)
 
+    print(run_stats)
     for algo in run_stats:
+        print(algo)
         writer.writerow(f"{algo}")
 
         for tool in run_stats[algo]:
+            print(tool)
             writer.writerow(f"{tool}")
             writer.writerow(header)
 
             for stats in run_stats[algo][tool]:
+                print(stats)
                 print(stats.split(','))
                 stat_list = [stat.strip().strip("ms") for stat in stats.split(',')[1:]]
                 del stat_list[2]
