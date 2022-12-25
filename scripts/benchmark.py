@@ -61,7 +61,7 @@ def store_stats(run_stats: dict):
     writer = csv.writer(output_file)
 
     for algo, stats in run_stats.items():
-        writer.writerow(f{algo})
+        writer.writerow(f"{algo}")
         writer.writerow(header)
 
 
