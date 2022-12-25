@@ -56,25 +56,21 @@ def get_time_stamp():
     date_time = datetime.fromtimestamp(time_stamp)
     return date_time.strftime("%d-%m-%Y-%H:%M:%S")
 
+
 def store_stats(run_stats: dict):
-    header = ["Matrix", "MEAN", "SD", "MIN", "MAX"]
+    header = ["MATRIX", "MEAN", "SD", "MIN", "MAX"]
     output_file = open(OUTPUT_PATH / (get_time_stamp() + ".csv"), "w")
     writer = csv.writer(output_file)
 
-    print(run_stats)
     for algo in run_stats:
-        print(algo)
-        writer.writerow(f"{algo}")
+        writer.writerow([f"{algo}"])
 
         for tool in run_stats[algo]:
-            print(tool)
-            writer.writerow(f"{tool}")
+            writer.writerow([f"{tool}"])
             writer.writerow(header)
 
             for graph in run_stats[algo][tool]:
                 stats = f"{run_stats[algo][tool][graph]}"
-                print(stats)
-                print(stats.split(','))
                 stat_list = [graph] + [re.sub("[^\d\.]", "", stat) for stat in stats.split(',')[1:]]
                 del stat_list[3]
                 writer.writerow(stat_list)
