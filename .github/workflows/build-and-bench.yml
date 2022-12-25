@@ -17,8 +17,12 @@ jobs:
           git submodule update --init --recursive
           git submodule update --remote deps/graphblas-sharp/
 
+      - name: Build Spla
+        run: python3 scripts/build_spla.py
+
       - name: Build LAGraph
         run: python3 scripts/build_lagraph.py
+        
       - name: Build GraphBLAS-sharp
         run: |
           cd deps/graphblas-sharp

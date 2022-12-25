@@ -53,7 +53,7 @@ class Graph:
 GRAPHS_DATA = {name: Graph(name) for name in GRAPHS_NAMES}
 
 GRAPHS_BFS = [
-    GRAPHS_DATA['wing'],
+    GRAPHS_DATA['wing']
 ]
 
 GRAPHS_SSSP = []
