@@ -1,0 +1,32 @@
+name: Build and benchmark
+
+on: [push]
+jobs:
+  build-and-bench-self-hosted:
+    runs-on: self-hosted
+    steps:
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - name: OpenCL Info
+        run: clinfo
+
+      - name: Update dependencies
+        run: |
+          git submodule update --init --recursive
+          git submodule update --remote deps/graphblas-sharp/
+
+      - name: Build LAGraph
+        run: python3 scripts/build_lagraph.py
+      - name: Build GraphBLAS-sharp
+        run: |
+          cd deps/graphblas-sharp
+          chmod +x build.sh
+          ./build.sh DotnetBuild
+          cd ../../
+
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
