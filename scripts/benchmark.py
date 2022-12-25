@@ -50,7 +50,7 @@ def output_stats(run_stats: dict):
 
 
 def get_time_stamp():
-    current_time = datetime.datetime.now()
+    current_time = datetime.now()
     time_stamp = current_time.timestamp()
     date_time = datetime.fromtimestamp(time_stamp)
     return date_time.strftime("%d-%m-%Y-%H:%M:%S")
