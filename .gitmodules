@@ -15,5 +15,5 @@
 	url = https://github.com/JetBrains-Research/spla.git
 [submodule "deps/graphblas-sharp"]
 	path = deps/graphblas-sharp
-	url = https://github.com/YaccConstructor/GraphBLAS-sharp.git
+	url = https://github.com/kirillgarbar/GraphBLAS-sharp.git
 	branch = net5

@@ -27,11 +27,7 @@ jobs:
         run: python3 scripts/build_graphblast.py
         
       - name: Build GraphBLAS-sharp
-        run: |
-          cd deps/graphblas-sharp
-          chmod +x build.sh
-          ./build.sh DotnetBuild
-          cd ../../
+        run: bash scripts/build_graphblas-sharp.sh
 
       - name: Benchmark LAGraph and GraphBLAST BFS
         run: python3 scripts/benchmark.py --tool lagraph graphblast --algo bfs
