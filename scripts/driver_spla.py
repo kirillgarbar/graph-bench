@@ -18,7 +18,7 @@ class DriverSpla(driver.Driver):
     def __init__(self):
         super().__init__()
         self.exec_dir = config.DEPS / "spla" / "build"
-        self.spla_bfs = "spla_bfs" + config.EXECUTABLE_EXT
+        self.spla_bfs = "bfs" + config.EXECUTABLE_EXT
         self.spla_sssp = "spla_sssp" + config.EXECUTABLE_EXT
         self.spla_tc = "spla_tc" + config.EXECUTABLE_EXT
         self.undirected = 0
@@ -63,7 +63,7 @@ class DriverSpla(driver.Driver):
         runs = []
         for line in lines:
             if line.startswith("gpu(ms):"):
-                runs = [float(v) for v in line.split(" ")[1:-1]]
+                runs = [float(v) for v in line.split(", ")[1:-1]]
         return driver.ExecutionResult(runs[0], runs[1:])
 
     def _get_platform(self):

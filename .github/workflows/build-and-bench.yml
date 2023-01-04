@@ -29,8 +29,8 @@ jobs:
       - name: Build GraphBLAS-sharp
         run: bash scripts/build_graphblas-sharp.sh
 
-      - name: Benchmark LAGraph and GraphBLAST BFS
-        run: python3 scripts/benchmark.py --tool lagraph graphblast --algo bfs
+      - name: BFS Benchmark. LAGraph, GraphBLAST, SPLA
+        run: python3 scripts/benchmark.py --tool lagraph graphblast spla --algo bfs
 
       - name: List files in the repository
         run: |
