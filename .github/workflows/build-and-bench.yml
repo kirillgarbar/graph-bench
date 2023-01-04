@@ -41,6 +41,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: benchmark-data
-          path: |
-            docs
-            !docs/*.png
+          path: artifacts/benchmark_result.csv

@@ -7,6 +7,7 @@ import argparse
 import csv
 from datetime import datetime
 import re
+import subprocess
 
 LaGRAPH_PATH = config.DEPS / "lagraph" / "build_git"
 OUTPUT_PATH = config.ROOT / "docs"
@@ -58,8 +59,10 @@ def get_time_stamp():
 
 
 def store_stats(run_stats: dict):
-    header = ["MATRIX", "MEAN", "SD", "MIN", "MAX"]
-    output_file = open(OUTPUT_PATH / (get_time_stamp() + ".csv"), "w")
+    header = ["matrix", "mean", "sd", "min", "max"]
+    file_name = get_time_stamp() + ".csv"
+    output_file_path = OUTPUT_PATH / file_name
+    output_file = open(output_file_path, "w")
     writer = csv.writer(output_file)
 
     for algo in run_stats:
@@ -74,6 +77,7 @@ def store_stats(run_stats: dict):
                 stat_list = [graph] + [re.sub("[^\d\.]", "", stat) for stat in stats.split(',')[1:]]
                 del stat_list[3]
                 writer.writerow(stat_list)
+    subprocess.call(f'cp {output_file_path} {config.ROOT / "artifacts" / "benchmark_result.csv"}', shell=True) 
 
 
 def main():
