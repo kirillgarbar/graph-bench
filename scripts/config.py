@@ -16,7 +16,7 @@ DATASET_SUFFIX = ""
 DEFAULT_NUM_ITERATIONS = 10
 DEFAULT_SOURCE_VERTEX = 0
 
-GRAPHS_NAMES = open(MATRICES, 'r').readlines()
+GRAPHS_NAMES = [line.strip() for line in open(MATRICES, 'r').readlines()]
 
 
 @dataclass
