@@ -2,11 +2,11 @@ import config
 import os
 import ssgetpy
 
-present_matrices = os.listdir(DATASET)
+present_matrices = os.listdir(config.DATASET)
 
-for matrix in GRAPHS_NAMES:
+for matrix in config.GRAPHS_NAMES:
 	file_name = matrix + ".mtx"
 	if file_name not in present_matrices:
-		ssgetpy.search(name=matrix)[0].download(format='MM', destpath=DATASET, extract=True)
-	os.rename(DATASET/matrix/file_name, DATASET/file_name)
-	os.remove(DATASET/matrix)
+		ssgetpy.search(name=matrix)[0].download(format='MM', destpath=config.DATASET, extract=True)
+		os.rename(config.DATASET/matrix/file_name, config.DATASET/file_name)
+		os.rmdir(config.DATASET/matrix)
