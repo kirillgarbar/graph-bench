@@ -77,7 +77,8 @@ def store_stats(run_stats: dict):
                 stat_list = [graph] + [re.sub("[^\d\.]", "", stat) for stat in stats.split(',')[1:]]
                 del stat_list[3]
                 writer.writerow(stat_list)
-    subprocess.call(f'cp {output_file_path} {config.ROOT / "artifacts" / "benchmark_result.csv"}', shell=True) 
+    output_file.close()
+    subprocess.call(f'mkdir -p {config.ROOT / "artifacts"} | cp {output_file_path} {config.ROOT / "artifacts" / "benchmark_result.csv"}', shell=True) 
 
 
 def main():
