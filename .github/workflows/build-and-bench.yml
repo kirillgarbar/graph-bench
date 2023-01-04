@@ -43,4 +43,4 @@ jobs:
           name: benchmark-data
           path: |
             docs
-            docs/*.png
+            !docs/*.png
