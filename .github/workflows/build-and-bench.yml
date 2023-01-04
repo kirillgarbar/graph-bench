@@ -37,7 +37,10 @@ jobs:
       - name: BFS Benchmark. LAGraph, GraphBLAST, SPLA
         run: python3 scripts/benchmark.py --tool lagraph graphblast spla --algo bfs --platform 0
 
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: benchmark-data
+          path: |
+            docs
+            docs/*.png
