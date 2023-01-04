@@ -30,7 +30,7 @@ jobs:
         run: bash scripts/build_graphblas-sharp.sh
 
       - name: BFS Benchmark. LAGraph, GraphBLAST, SPLA
-        run: python3 scripts/benchmark.py --tool lagraph graphblast spla --algo bfs
+        run: python3 scripts/benchmark.py --tool lagraph graphblast spla --algo bfs --platform 0
 
       - name: List files in the repository
         run: |
