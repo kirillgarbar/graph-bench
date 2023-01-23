@@ -19,10 +19,10 @@ jobs:
       - name: OpenCL Info
         run: clinfo
 
-      - name: Update dependencies
-        run: |
-          git submodule update --init --recursive
-          git submodule update --remote deps/graphblas-sharp/
+      #- name: Update dependencies
+      #  run: |
+      #    git submodule update --init --recursive
+      #    git submodule update --remote deps/graphblas-sharp/
         
       - name: Build GraphBLAS-sharp
         run: bash scripts/build_graphblas-sharp.sh
@@ -34,7 +34,7 @@ jobs:
         run: python3 scripts/benchmark_graphblas-sharp.py
 
       - name: Store benchmark result
-        uses: benchmark-action/github-action-benchmark@v1
+        uses: rhysd/github-action-benchmark@v1
         with:
           name: BFS
           tool: 'benchmarkdotnet'
