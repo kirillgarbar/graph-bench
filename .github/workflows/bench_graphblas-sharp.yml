@@ -25,7 +25,10 @@ jobs:
       #    git submodule update --remote deps/graphblas-sharp/
         
       - name: Build GraphBLAS-sharp
-        run: bash scripts/build_graphblas-sharp.sh
+        run: |
+          cd deps/graphblas-sharp/
+          dotnet build -c Release
+          cd ../../
 
       - name: Download matrices
         run: python3 scripts/download_matrices.py
