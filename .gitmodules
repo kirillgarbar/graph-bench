@@ -16,4 +16,4 @@
 [submodule "deps/graphblas-sharp"]
 	path = deps/graphblas-sharp
 	url = https://github.com/kirillgarbar/GraphBLAS-sharp.git
-	branch = net5
+	branch = bfs

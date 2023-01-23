@@ -7,7 +7,7 @@ config_directory = config.ROOT / "scripts"
 dest_directory = config.DEPS / "graphblas-sharp" / "benchmarks" / "GraphBLAS-sharp.Benchmarks" / "Configs"
 subprocess.call(f'cp {config_directory / "config_graphblas-sharp.txt"} {dest_directory / "Context.txt"}', shell=True)
 
-matrices = [matrix + ".mtx" for matrix in GRAPHS_NAMES]
+matrices = [matrix + ".mtx" for matrix in config.GRAPHS_NAMES]
 
 with open(f'{dest_directory / "BFSBenchmarks.txt"}', 'w') as file:
 	file.writelines(matrices)
