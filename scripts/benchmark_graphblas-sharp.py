@@ -10,9 +10,9 @@ subprocess.call(f'cp {config_directory / "config_graphblas-sharp.txt"} {dest_dir
 matrices = [matrix + ".mtx" for matrix in config.GRAPHS_NAMES]
 
 with open(f'{dest_directory / "BFSBenchmarks.txt"}', 'w') as file:
-	file.writelines(matrices)
+	file.writelines(m + "\n" for m in matrices)
 
 #Executing benchmarks
 project_directory = config.DEPS / "graphblas-sharp" / "benchmarks" / "GraphBLAS-sharp.Benchmarks"
 binaries = project_directory / "bin" / "Release" / "net7.0"
-subprocess.call(f'dotnet {binaries / "GraphBLAS-sharp.Benchmarks.dll"} --exporters json --filter *BFSBenchmarks*')
+subprocess.call(f'dotnet {binaries / "GraphBLAS-sharp.Benchmarks.dll"} --exporters json --filter *BFSBenchmarks*', shell=True)
