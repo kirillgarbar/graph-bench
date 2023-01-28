@@ -19,10 +19,8 @@ jobs:
       - name: OpenCL Info
         run: clinfo
 
-      #- name: Update dependencies
-      #  run: |
-      #    git submodule update --init --recursive
-      #    git submodule update --remote deps/graphblas-sharp/
+      - name: Update dependencies
+        run: git submodule update --remote deps/graphblas-sharp/
         
       - name: Build GraphBLAS-sharp
         run: |
