@@ -1,3 +1,0 @@
-NVIDIA*
-Gpu
-32
