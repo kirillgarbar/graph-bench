@@ -6,7 +6,7 @@ from dataclasses import dataclass
 ROOT = pathlib.Path(__file__).parent.parent
 DATASET = ROOT / "dataset"
 DEPS = ROOT / "deps"
-MATRICES = ROOT / "scripts" / "matrices.txt"
+MATRICES = ROOT / "scripts" / "configs" / "matrices.txt"
 
 SYSTEM = {'Darwin': 'macos', 'Linux': 'linux', 'Windows': 'windows'}[platform.system()]
 EXECUTABLE_EXT = {'macos': '', 'windows': '.exe', 'linux': ''}[SYSTEM]
