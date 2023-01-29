@@ -14,7 +14,7 @@ targets = [line.strip() for line in open(config_directory / "graphblas-sharp_tar
 for target in targets:
 	#Writing config for each target
 	with open(f'{dest_directory / "Configs" / "{target}.txt"}', 'w') as file:
-		file.writelines(m + "\n" for m in matrices)`
+		file.writelines(m + "\n" for m in matrices)
 
 	#Executing benchmarks
 	project_directory = config.DEPS / "graphblas-sharp" / "benchmarks" / "GraphBLAS-sharp.Benchmarks"
