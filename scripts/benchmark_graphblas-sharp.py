@@ -19,6 +19,6 @@ for target in targets:
 	#Executing benchmarks
 	project_directory = config.DEPS / "graphblas-sharp" / "benchmarks" / "GraphBLAS-sharp.Benchmarks"
 	binaries = project_directory / "bin" / "Release" / "net7.0"
-	subprocess.call(f'dotnet {binaries / "GraphBLAS-sharp.Benchmarks.dll"} --exporters json --filter *{target}*', shell=True)
+	subprocess.call(f'dotnet {binaries / "GraphBLAS-sharp.Benchmarks.dll"} --exporters csv --filter *{target}*', shell=True)
 
 	#TODO: Copying csv for uploading

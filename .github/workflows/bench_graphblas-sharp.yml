@@ -20,7 +20,9 @@ jobs:
         run: clinfo
 
       - name: Update dependencies
-        run: git submodule update --remote deps/graphblas-sharp/
+        run: |
+          git submodule sync
+          git submodule update --init --recursive --remote deps/graphblas-sharp/
         
       - name: Build GraphBLAS-sharp
         run: |
