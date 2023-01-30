@@ -6,7 +6,7 @@ import csv
 config_directory = config.ROOT / "scripts" / "configs"
 dest_directory = config.DEPS / "graphblas-sharp" / "benchmarks" / "GraphBLAS-sharp.Benchmarks"
 subprocess.call(f'cp {config_directory / "config_graphblas-sharp.txt"} {dest_directory / "Configs" / "Context.txt"}', shell=True)
-subprocess.call(f'cp -a {config.DATASET / "."} {dest_directory / "Datasets"}')
+subprocess.call(f'cp -a {config.DATASET / "."} {dest_directory / "Datasets"}', shell=True)
 
 targets = [line.strip() for line in open(config_directory / "graphblas-sharp_targets.txt", 'r').readlines()]
 
