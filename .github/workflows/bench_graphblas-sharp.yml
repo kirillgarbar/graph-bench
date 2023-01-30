@@ -37,13 +37,8 @@ jobs:
         run: python3 scripts/benchmark_graphblas-sharp.py
 
       - name: Store benchmark result
-        uses: rhysd/github-action-benchmark@v1
+        uses: actions/upload-artifact@v3
         with:
-          name: BFS
-          tool: 'benchmarkdotnet'
-          output-file-path: BenchmarkDotNet.Artifacts/results/GraphBLAS.FSharp.Benchmarks.BFSBenchmarksWithoutDataTransfer-report-full-compressed.json
-          # Access token to deploy GitHub Pages branch
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          # Push and deploy GitHub pages branch automatically
-          auto-push: true
+          name: Benchmark-results
+          path: artifacts/
           
