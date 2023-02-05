@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1675567060625,
+  "lastUpdate": 1675567267913,
   "repoUrl": "https://github.com/kirillgarbar/graph-bench",
   "entries": {
     "BFS": [
@@ -198,6 +198,42 @@ window.BENCHMARK_DATA = {
             "value": 250358398.3,
             "unit": "ns",
             "range": "± 16748410.419403045"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "st087492@student.spbu.ru",
+            "name": "kirillgarbar",
+            "username": "kirillgarbar"
+          },
+          "committer": {
+            "email": "st087492@student.spbu.ru",
+            "name": "kirillgarbar",
+            "username": "kirillgarbar"
+          },
+          "distinct": true,
+          "id": "c379bdcdd19e08542e358dea54ae692292c4f71b",
+          "message": "Pushing correct file",
+          "timestamp": "2023-02-05T06:19:41+03:00",
+          "tree_id": "389800c282a55ef3ffc5cfda3fcc1d4d200e9b49",
+          "url": "https://github.com/kirillgarbar/graph-bench/commit/c379bdcdd19e08542e358dea54ae692292c4f71b"
+        },
+        "date": 1675567267182,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "coAuthorsCiteseer.mtx",
+            "value": 682166480.3,
+            "unit": "ns",
+            "range": "± 22660072.907285765"
+          },
+          {
+            "name": "wing.mtx",
+            "value": 235094759.1,
+            "unit": "ns",
+            "range": "± 10418094.63371455"
           }
         ]
       }
