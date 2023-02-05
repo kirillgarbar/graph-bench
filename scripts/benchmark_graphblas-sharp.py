@@ -21,7 +21,7 @@ subprocess.call(f'rm { artifacts / "*"}', shell=True)
 for target in targets:
 	project_directory = config.DEPS / "graphblas-sharp" / "benchmarks" / "GraphBLAS-sharp.Benchmarks"
 	binaries = project_directory / "bin" / "Release" / "net7.0"
-	subprocess.call(f'dotnet {binaries / "GraphBLAS-sharp.Benchmarks.dll"} --exporters csv json --filter *{target}*', shell=True)
+	subprocess.call(f'dotnet {binaries / "GraphBLAS-sharp.Benchmarks.dll"} --exporters csv briefjson --filter *{target}*', shell=True)
 
 #Copying results for uploading
 subprocess.call(f'rsync -a {dotnet_artifacts}/ {artifacts}', shell=True)
