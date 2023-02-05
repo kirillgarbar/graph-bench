@@ -1,6 +1,8 @@
 import subprocess
 import config
 import csv
+import os
+import json
 
 #Copy local configs and datasets to source
 config_directory = config.ROOT / "scripts" / "configs"
@@ -30,7 +32,7 @@ subprocess.call(f'rsync -a {dotnet_artifacts}/ {artifacts}', shell=True)
 json_files = [file for file in os.listdir(artifacts) if file.endswith(".json")]
 
 for file in json_files:
-	with open(file, "r+") as file:
+	with open(artifacts / file, "r+") as file:
 		data = json.load(file)
 		for benchmark in data["Benchmarks"]:	
 			name_field = benchmark["FullName"] 
