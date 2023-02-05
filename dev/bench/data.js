@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1675566356709,
+  "lastUpdate": 1675567060625,
   "repoUrl": "https://github.com/kirillgarbar/graph-bench",
   "entries": {
     "BFS": [
@@ -162,6 +162,42 @@ window.BENCHMARK_DATA = {
             "value": 243464122.9,
             "unit": "ns",
             "range": "± 8507657.205072897"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "st087492@student.spbu.ru",
+            "name": "kirillgarbar",
+            "username": "kirillgarbar"
+          },
+          "committer": {
+            "email": "st087492@student.spbu.ru",
+            "name": "kirillgarbar",
+            "username": "kirillgarbar"
+          },
+          "distinct": true,
+          "id": "4b99db53862a84d9c504056a7215c39ca1b7967d",
+          "message": "Wrong fix",
+          "timestamp": "2023-02-05T06:16:27+03:00",
+          "tree_id": "83da1462aa8ea9f0ae0b7c53b5ab2c7a755998d5",
+          "url": "https://github.com/kirillgarbar/graph-bench/commit/4b99db53862a84d9c504056a7215c39ca1b7967d"
+        },
+        "date": 1675567059893,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "GraphBLAS.FSharp.Benchmarks.BFSBenchmarksWithoutDataTransfer.Benchmark(OclContextInfo: ({ ClContext = GeForce RTX 2070\n  Queue = Microsoft.FSharp.Control.FSharpMailboxProcessor`1[Brahma.FSharp.Msg] }, 32), InputMatrixReader: coAuthorsCiteseer.mtx)",
+            "value": 665322222.7,
+            "unit": "ns",
+            "range": "± 13666836.621924557"
+          },
+          {
+            "name": "GraphBLAS.FSharp.Benchmarks.BFSBenchmarksWithoutDataTransfer.Benchmark(OclContextInfo: ({ ClContext = GeForce RTX 2070\n  Queue = Microsoft.FSharp.Control.FSharpMailboxProcessor`1[Brahma.FSharp.Msg] }, 32), InputMatrixReader: wing.mtx)",
+            "value": 250358398.3,
+            "unit": "ns",
+            "range": "± 16748410.419403045"
           }
         ]
       }
