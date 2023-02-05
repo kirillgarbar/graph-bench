@@ -25,6 +25,9 @@ for target in targets:
 	binaries = project_directory / "bin" / "Release" / "net7.0"
 	subprocess.call(f'dotnet {binaries / "GraphBLAS-sharp.Benchmarks.dll"} --exporters csv briefjson --filter *{target}*', shell=True)
 
+#Copying results for uploading
+subprocess.call(f'rsync -a {dotnet_artifacts}/ {artifacts}', shell=True)
+
 #Parsing matrix names in jsons to draw charts(FullName = matrix.mtx)
 json_files = [file for file in os.listdir(artifacts) if file.endswith(".json")]
 
@@ -40,6 +43,3 @@ for file in json_files:
 		file.seek(0)
 		json.dump(data, file)
 		file.truncate()
-
-#Copying results for uploading
-subprocess.call(f'rsync -a {dotnet_artifacts}/ {artifacts}', shell=True)
