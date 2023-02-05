@@ -36,9 +36,19 @@ jobs:
       - name: Run benchmark
         run: python3 scripts/benchmark_graphblas-sharp.py
 
-      - name: Store benchmark result
+      - name: Upload benchmark result
         uses: actions/upload-artifact@v3
         with:
           name: Benchmark-results
           path: artifacts/
           
+      - name: Draw charts
+        uses: rhysd/github-action-benchmark@v1
+        with:
+          name: BFS
+          tool: 'benchmarkdotnet'
+          output-file-path: BenchmarkDotNet.Artifacts/results/GraphBLAS.FSharp.Benchmarks.BFSBenchmarksWithoutDataTransfer-report-brief.json
+          # Access token to deploy GitHub Pages branch
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # Push and deploy GitHub pages branch automatically
+          auto-push: true
