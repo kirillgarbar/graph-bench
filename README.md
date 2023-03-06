@@ -37,9 +37,10 @@ Download benchmark repository source code.
 
 ```shell
 git clone https://github.com/kirillgarbar/graph-bench.git
+cd graph-bench
 ```
 
-Within repo folder init git submodule to get all source code of tools.
+Within repo folder init git submodule to get all source code of tools. It might take a while.
 
 ```shell
 git submodule update --init --recursive
@@ -48,8 +49,8 @@ git submodule update --init --recursive
 You can also track your own GraphBLAS-sharp repo and branch.
 
 ```shell
-git config -f .gitmodules submodule.deps/graphblas-sharp.url https://github.com/username/GraphBLAS-sharp.git
-git config -f .gitmodules submodule.deps/graphblas-sharp.branch branch_name
+git config -f .gitmodules submodule.deps/graphblas-sharp.url https://github.com/<USERNAME>/GraphBLAS-sharp.git
+git config -f .gitmodules submodule.deps/graphblas-sharp.branch <BRANCH_NAME>
 git submodule sync
 git submodule update --init --recursive --remote deps/graphblas-sharp/
 ```
@@ -93,9 +94,10 @@ python3 scripts/build_lagraph.py
 Build bundled GraphBLAS-sharp library.
 
 ```shell
-cd deps/graphblas-sharp/
-dotnet build -c Release
-cd ../../
+cd deps/graphblas-sharp/ && \
+    dotnet tool restore && \
+    dotnet build -c Release && \
+    cd ../../
 ```
 
 ### 3. How to download data
@@ -165,7 +167,7 @@ This project supports automated benchmarks using github actions.
 ### 1. Getting source code
 
 Since you'll need to commit config files and run benchmarks using your own action runner, fork of this repo is required.
-Once you have your own repository, follow the [insctructions](#1-how-to-get-source-code) to set submodule for your own GraphBLAS-sharp repository.
+Once you have your own repository, follow the [insctructions](#1-how-to-get-source-code) to set submodule for your own GraphBLAS-sharp repository. Commit these changes.
 You'll also need to [host your own actions runner](https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners) on remote machine.
 
 ### 2. Uploading dataset
@@ -174,7 +176,7 @@ After your runner is hosted, dataset can be downloaded remotely using a script o
 
 ### 3. Benchmarking
 
-Benchmarking workflow can be started by pushing a commit with conifgs.
+Benchmarking workflow can be started by pushing a commit with conifgs or manually restarted in actions menu.
 Results are uploaded to github in action's summary as an artifact.
 
 ## License
