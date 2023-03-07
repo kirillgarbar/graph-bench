@@ -27,6 +27,7 @@ jobs:
       - name: Build GraphBLAS-sharp
         run: |
           cd deps/graphblas-sharp/
+          dotnet tool restore
           dotnet build -c Release
           cd ../../
 
@@ -41,14 +42,3 @@ jobs:
         with:
           name: Benchmark-results
           path: artifacts/
-          
-      - name: Draw charts
-        uses: rhysd/github-action-benchmark@v1
-        with:
-          name: BFS
-          tool: 'benchmarkdotnet'
-          output-file-path: artifacts/GraphBLAS.FSharp.Benchmarks.BFSBenchmarksWithoutDataTransfer-report-brief.json
-          # Access token to deploy GitHub Pages branch
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          # Push and deploy GitHub pages branch automatically
-          auto-push: true
