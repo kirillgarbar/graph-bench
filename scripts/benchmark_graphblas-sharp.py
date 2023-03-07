@@ -27,19 +27,3 @@ for target in targets:
 
 #Copying results for uploading
 subprocess.call(f'rsync -a {dotnet_artifacts}/ {artifacts}', shell=True)
-
-#Parsing matrix names in jsons to draw charts(FullName = matrix.mtx)
-json_files = [file for file in os.listdir(artifacts) if file.endswith(".json")]
-
-for file in json_files:
-	with open(artifacts / file, "r+") as file:
-		data = json.load(file)
-		for benchmark in data["Benchmarks"]:	
-			name_field = benchmark["FullName"] 
-			matrix_name = name_field.split(":")[-1][:-1].strip()
-			print(matrix_name)
-			benchmark["FullName"] = matrix_name
-
-		file.seek(0)
-		json.dump(data, file)
-		file.truncate()
