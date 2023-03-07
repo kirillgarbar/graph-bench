@@ -1,0 +1,2 @@
+BFSBenchmark
+EWiseAddAtLeastOneBenchmarks4Float32CSRWithoutDataTransfer

@@ -29,20 +29,30 @@ Benchmarks suite for performance study of various graph analysis frameworks for 
 | indochina-2004    |     7.5M | 194.1M |     256425 |         [link](https://suitesparse-collection-website.herokuapp.com/MM/LAW/indochina-2004.tar.gz) |
 | rgg_n_2_23_s0     |     8.3M |   127M |         40 |     [link](https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/rgg_n_2_23_s0.tar.gz) |
 
-## Instructions
+## Manually running benchmarks
 
 ### 1. How to get source code
 
 Download benchmark repository source code.
 
 ```shell
-git clone https://github.com/EgorOrachyov/graph-bench.git
+git clone https://github.com/kirillgarbar/graph-bench.git
+cd graph-bench
 ```
 
-Within repo folder init git submodule to get all source code of tools.
+Within repo folder init git submodule to get all source code of tools. It might take a while.
 
 ```shell
 git submodule update --init --recursive
+```
+
+You can also track your own GraphBLAS-sharp repo and branch.
+
+```shell
+git config -f .gitmodules submodule.deps/graphblas-sharp.url https://github.com/<USERNAME>/GraphBLAS-sharp.git
+git config -f .gitmodules submodule.deps/graphblas-sharp.branch <BRANCH_NAME>
+git submodule sync
+git submodule update --init --recursive --remote deps/graphblas-sharp/
 ```
 
 ### 2. How to build tools
@@ -79,12 +89,52 @@ Build bundled SuiteSparse and LaGraph libraries.
 python3 scripts/build_lagraph.py
 ```
 
+#### 2.5 GraphBLAS-sharp
+
+Build bundled GraphBLAS-sharp library.
+
+```shell
+cd deps/graphblas-sharp/ && \
+    dotnet tool restore && \
+    dotnet build -c Release && \
+    cd ../../
+```
+
 ### 3. How to download data
+
+#### 3.1 Manual copying
 
 Download all graphs one by one archives and extract into [dataset](./dataset) folder.
 Alternatively, download all graphs within single archive from [Google Drive](https://drive.google.com/file/d/1bgovKsmjexYyXfEZLxNi-0uoxmDalIGn/view?usp=sharing).
 
+#### 3.2 Downloading with script
+
+Graphs listed in `scripts/matrices.txt` file can be automatically downloaded using this script.
+
+```shell
+python3 scripts/download_matrices.py
+```
+
 ### 4. How to run benchmarks
+
+#### 4.1 GraphBLAS-sharp
+
+Dataset folder with all nested directories will be copied to the corresponding GraphBLAS-sharp directory, so make sure all graphs are placed in correct folders.
+All configs are present in `scripts/configs` folder. 
+
+`config_graphblas-sharp.txt` chooses the device and work-group size.
+`targets_graphblas-sharp.txt` contais all benchmarks that are going to be performed.
+`targets` directory contains files with graph names corresponding to each benchmark.
+
+Run all listed benchmarks.
+
+```shell
+python3 scripts/benchmark_graphblas-sharp.py
+```
+
+Result will be stored in `artifacts` directory.
+
+#### 4.2 Other libraries
 
 Run all algorithms & graphs & tools performance measurements.
 
@@ -109,6 +159,25 @@ See help for more options.
 ```shell
 python3 scripts/benchmark.py -h
 ```
+
+## Benchmark using workflows
+
+This project supports automated benchmarks using github actions.
+
+### 1. Getting source code
+
+Since you'll need to commit config files and run benchmarks using your own action runner, fork of this repo is required.
+Once you have your own repository, follow the [insctructions](#1-how-to-get-source-code) to set submodule for your own GraphBLAS-sharp repository. Commit these changes.
+You'll also need to [host your own actions runner](https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners) on remote machine.
+
+### 2. Uploading dataset
+
+After your runner is hosted, dataset can be downloaded remotely using a script or copied to a folder manually. 
+
+### 3. Benchmarking
+
+Benchmarking workflow can be started by pushing a commit with conifgs or manually restarted in actions menu.
+Results are uploaded to github in action's summary as an artifact.
 
 ## License
 

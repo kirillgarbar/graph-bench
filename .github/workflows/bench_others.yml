@@ -1,6 +1,6 @@
-name: Build and benchmark
+name: Build and benchmark other
 
-on: [push]
+#on: [push]
 jobs:
   build-and-bench-self-hosted:
     runs-on: self-hosted
@@ -17,7 +17,6 @@ jobs:
       - name: Update dependencies
         run: |
           git submodule update --init --recursive
-          git submodule update --remote deps/graphblas-sharp/
 
       - name: Build Spla
         run: python3 scripts/build_spla.py
@@ -27,9 +26,6 @@ jobs:
 
       - name: Build GraphBLAST
         run: python3 scripts/build_graphblast.py
-        
-      - name: Build GraphBLAS-sharp
-        run: bash scripts/build_graphblas-sharp.sh
 
       - name: Download matrices
         run: python3 scripts/download_matrices.py
