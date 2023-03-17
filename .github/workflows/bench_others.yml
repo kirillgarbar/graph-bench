@@ -1,6 +1,6 @@
 name: Build and benchmark other
 
-#on: [push]
+on: [push]
 jobs:
   build-and-bench-self-hosted:
     runs-on: self-hosted
