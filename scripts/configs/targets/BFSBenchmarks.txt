@@ -1,2 +1,3 @@
-wing.mtx
-coAuthorsCiteseer.mtx
+com-Orkut.mtx
+indochina-2004.mtx
+coPapersDBLP.mtx
