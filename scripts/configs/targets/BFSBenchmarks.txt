@@ -1,2 +1,1 @@
-coPapersDBLP.mtx
-coAuthorsCiteseer.mtx
+hollywood-2009.mtx
