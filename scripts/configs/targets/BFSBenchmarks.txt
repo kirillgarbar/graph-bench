@@ -1,3 +1,2 @@
-com-Orkut.mtx
-indochina-2004.mtx
 coPapersDBLP.mtx
+coAuthorsCiteseer.mtx
