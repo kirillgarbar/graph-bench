@@ -1,1 +1,2 @@
 BFSBenchmark
+BFSSparseBenchmark
