@@ -1,2 +1,1 @@
-BFSBenchmark
-BFSSparseBenchmark
+BFSPushPullBenchmark
