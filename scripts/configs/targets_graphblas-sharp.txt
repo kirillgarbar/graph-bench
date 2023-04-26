@@ -1,1 +1,1 @@
-BFSPushPullBenchmark
+BFSBenchmark
