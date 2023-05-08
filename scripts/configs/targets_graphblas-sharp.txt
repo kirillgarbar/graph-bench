@@ -1,1 +1,1 @@
-BFSBenchmark
+SSSPBenchmark
